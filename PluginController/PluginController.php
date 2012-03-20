@@ -179,6 +179,17 @@ abstract class PluginController implements PluginControllerInterface
 
     abstract protected function buildFinancialTransaction();
 
+
+    // FIXME: Here should be some Kind of Error Handling if no PayPalExpress Checkout is selected
+    protected function  doGetPaymentDetails($paymentId)
+    {
+	$instruction = $payment->getPaymentInstruction();
+
+        $plugin = $this->getPlugin($instruction->getPaymentSystemName());
+
+	return $plugin->getExpressCheckoutInformation($transaction);
+    }
+
     protected function doApprove(PaymentInterface $payment, $amount)
     {
         $instruction = $payment->getPaymentInstruction();

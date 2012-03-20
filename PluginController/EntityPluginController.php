@@ -47,6 +47,12 @@ class EntityPluginController extends PluginController
         $this->entityManager = $entityManager;
     }
 
+
+    public function getPaymentDetails($paymentId)
+    {
+	return $this->doGetPaymentDetails($paymentId);
+    }
+
     /**
      * {@inheritDoc}
      */

@@ -140,6 +140,12 @@ interface PluginControllerInterface
     function approveAndDeposit($paymentId, $amount);
 
     /**
+     * This method tries to retrieve Details on the Customer if they are provided
+     * by the PaymentPlugin that is used
+     */
+     public function getPaymentDetails($paymentId);
+
+    /**
      * This method calls checkPaymentInstruction on the plugin processing the
      * requested payment system. It allows to verify the PaymentInstruction
      * prior to creating it.
