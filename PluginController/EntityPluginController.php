@@ -50,7 +50,8 @@ class EntityPluginController extends PluginController
 
     public function getPaymentDetails($paymentId)
     {
-	return $this->doGetPaymentDetails($paymentId);
+         $payment = $this->getPayment($paymentId);
+         return $this->doGetPaymentDetails($payment);
     }
 
     /**
